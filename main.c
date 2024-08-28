@@ -1,25 +1,28 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-int main()
+int main(int argc, char *argv[])
 {
-    int cents;
-    scanf("%d", &cents);
-
-    for (int quarters = cents / 25; quarters >= 0; quarters--)
+    if (argc != 2)
     {
-        int remaining_after_quarters = cents - (quarters * 25);
+        return 1;
+    }
 
-        for (int dimes = remaining_after_quarters / 10; dimes >= 0; dimes--)
+    int cents = atoi(argv[1]);
+
+    for (int quarters = 0; quarters <= cents / 25; quarters++)
+    {
+        int remain1 = cents - (quarters * 25);
+
+        for (int dimes = 0; dimes <= remain1 / 10; dimes++)
         {
-            int remaining_after_dimes = remaining_after_quarters - (dimes * 10);
+            int remain2 = remain1 - (dimes * 10);
 
-            for (int nickels = remaining_after_dimes / 5; nickels >= 0; nickels--)
+            for (int nickels = 0; nickels <= remain2 / 5; nickels++)
             {
-                int pennies = remaining_after_dimes - (nickels * 5);
+                int pennies = remain2 - (nickels * 5);
 
-                // Output the combination
-                printf("%d quarter(s), %d dime(s), %d nickel(s), %d pennie(s)\n",
-                       quarters, dimes, nickels, pennies);
+                printf("%d quarter(s), %d dime(s), %d nickel(s), %d pennie(s)\n", quarters, dimes, nickels, pennies);
             }
         }
     }

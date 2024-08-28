@@ -1,37 +1,12 @@
-# Makefile for ECE 36800 Assignment #1
+WARNING = -Wall -Wshadow --pedantic
+ERROR = -Wvla -Werror
+GCC = gcc -std=c99 -g $(WARNING) $(ERROR) 
 
-# Compiler
-CC = gcc
-
-# Compiler flags
-CFLAGS = -Wall -Wextra -O2
-
-# Target executable name
-TARGET = a1
-
-# Source files
 SRCS = main.c
+OBJS = $(SRCS:%.c=%.o)
 
-# Object files
-OBJS = $(SRCS:.c=.o)
+a1: $(OBJS) 
+	$(GCC) $(TESTFALGS) $(OBJS) -o a1
 
-# Default target
-all: $(TARGET)
-
-# Rule to build the target executable
-$(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
-
-# Rule to build the object files
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
-
-# Clean up build files
 clean:
-	rm -f $(OBJS) $(TARGET)
-
-# Run the program (optional)
-run: $(TARGET)
-	./$(TARGET)
-
-.PHONY: all clean run
+	rm -f a1 *.o output* *~
