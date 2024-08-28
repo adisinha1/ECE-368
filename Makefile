@@ -2,7 +2,7 @@ WARNING = -Wall -Wshadow --pedantic
 ERROR = -Wvla -Werror
 GCC = gcc -std=c99 -g $(WARNING) $(ERROR) 
 
-SRCS = main.c
+SRCS = a1.c
 TARGET = a1
 OBJS = $(SRCS:%.c=%.o)
 
