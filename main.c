@@ -1,14 +1,9 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-int main(int argc, char *argv[])
+int main()
 {
-    if (argc != 2)
-    {
-        return 1;
-    }
-
-    int cents = atoi(argv[1]);
+    int cents;
+    scanf("%d", &cents);
 
     for (int quarters = 0; quarters <= cents / 25; quarters++)
     {
@@ -26,6 +21,5 @@ int main(int argc, char *argv[])
             }
         }
     }
-
     return 0;
 }
