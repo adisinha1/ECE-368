@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main()
+int main(void)
 {
     int cents;
     scanf("%d", &cents);
@@ -20,6 +20,4 @@ int main()
             }
         }
     }
-
-    return 0;
 }
