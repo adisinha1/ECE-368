@@ -3,7 +3,7 @@ ERROR = -Wvla -Werror
 GCC = gcc -std=c99 -g $(WARNING) $(ERROR) 
 
 SRCS = a1.c
-TARGET = A1
+TARGET = a1
 OBJS = $(SRCS:%.c=%.o)
 all: $(TARGET)
 
